@@ -9,6 +9,9 @@ Example for how to debug vcpkg portfiles with the VS CMake extension (currently 
 - CMake 3.27.0
 - vcpkg with cmake 3.27.0 internally used (deleted the CMake folders from downloads; vcpkg tends to use its own cmake version if it is available)
 - Adjust the variables, explicitly vcpkg_exe, in the batch script to your case (Yeah I could run cmake in FetchContent mode to pull vcpkg for you but ..... no ;) )
+- a breakpoint in the portfile.cmake or somewhere cmake will hit since otherwise the debugger will just instantly close again.
 
 ### Troubleshooting
-If the debugger hangs idefinetly you probably did something wrong. My best guess here is that vcpkg did not use cmake 3.27
+- If the debugger hangs idefinetly you probably did something wrong. My best guess here is that vcpkg did not use cmake 3.27
+- If you see stdout-x64-windows-release.log: permission denied you screwed up and there is a competing vcpkg process trying to write to the same file. Just kill all vcpkg instances and retry
+- closing vs code and reopening also helps if the debugger hangs
