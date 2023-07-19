@@ -1,0 +1,4 @@
+{
+    "cmake.configureOnOpen": false,
+    "cmake.cmakePath": "${workspaceFolder}/vcpkg-debug.bat"
+}
